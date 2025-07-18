@@ -16,7 +16,12 @@
                             <div class="mt-2">
                                 <textarea id="body" name="body" rows="3"
                                     class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                                    placeholder="Here is an idea for a note.."></textarea>
+                                    placeholder="Here is an idea for a note.."
+                                    require><?= $_POST['body'] ?? '' ?></textarea>
+
+                                <?php if (isset($errors['body'])): ?>
+                                <p class="text-red-500 text-xs mt-2"><?= $errors['body'] ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -31,3 +36,10 @@
 </main>
 <!-- //!Esta parte es del footer -->
 <?php require 'views/partials/footer.php'; ?>
+
+
+<!-- //! ANOTACIONES -->
+
+<!-- require><?= $_POST['body'] ?? '' ?>-->
+<!-- EL REQUIRE SIRVE PARA QUE EL USUARIO NO PUEDA AGREGAR NOTAS VACIAS -->
+<!-- EL ?? VERIFICA SI EXISTE UN VALOR EN $_POST['body'] -->
