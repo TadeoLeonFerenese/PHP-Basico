@@ -1,5 +1,7 @@
 <?php  
 
+namespace Core;
+
 //Conncet to the database, and execute a Query
 class Database { 
       public $connection;
