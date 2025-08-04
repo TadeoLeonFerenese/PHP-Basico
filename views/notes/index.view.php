@@ -1,9 +1,9 @@
 <!-- //!Esta es la parte del Header  -->
-<?php require(__DIR__ . '/../partials/head.php') ?>
+<?php require base_path('views/partials/head.php'); ?>
 <!-- //!De esta forma se crean componentes y se limpia el codigo para que sea mas claro -->
-<?php require (__DIR__ . '/../partials/nav.php') ?>
+<?php require base_path('views/partials/nav.php'); ?>
 <!-- //!esta parte es del header -->
-<?php require (__DIR__ . '/../partials/header.php') ?>
+<?php require base_path('views/partials/header.php'); ?>
 
 <!-- //!Esta es la parte del Main  -->
 <main>
@@ -24,4 +24,4 @@
     </div>
 </main>
 <!-- //!Esta parte es del footer -->
-<?php require (__DIR__ . '/../partials/footer.php') ?>
+<?php require base_path('views/partials/footer.php'); ?>

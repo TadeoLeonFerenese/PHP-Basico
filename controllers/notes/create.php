@@ -1,15 +1,15 @@
 <?php 
 
-require 'Validator.php';
+require base_path('/Core/Validator.php');
 
-$config = require 'config.php';
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$heading = 'Create Note';
+     $errors = [];
 
 //! Esta funcion es mucho mas segura ya que no permite al usuario agregar notas vacias ni que las modifique
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-     $errors = [];
+
 
     //  $validator = new Validator();
     //Esta validacion es para que no se puedan agregar notas vacias
@@ -34,7 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 }
 
-require 'views/notes/create.view.php';
+view("notes/create.view.php", [
+    'heading' => 'Create Note',
+    'errors' => $errors
+]);
 
 
 //! ANOTACIONES !//
