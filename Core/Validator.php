@@ -1,5 +1,7 @@
 <?php 
 
+namespace Core;
+
 class Validator 
 {
     // Este metodo se lo llama funcion pura ya que no es contingente ni depende del estado o valores exteriores

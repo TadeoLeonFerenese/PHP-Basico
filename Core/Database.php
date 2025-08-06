@@ -1,6 +1,10 @@
 <?php  
 
+// Define el espacio de nombres 'Core' para organizar y evitar conflictos entre clases
 namespace Core;
+
+// Importa la clase PDO que se usa para conectar y manipular bases de datos
+use PDO;
 
 //Conncet to the database, and execute a Query
 class Database { 
@@ -16,8 +20,8 @@ class Database {
       //Connect to our MySql database
       $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
       //Defino los datos del servidor...
-      $this->connection = new PDO($dsn, $usuario, $contrasena, [
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+      $this->connection = new \PDO($dsn, $usuario, $contrasena, [
+        \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC
       ]);
       }
 //Ejecuto la consulta

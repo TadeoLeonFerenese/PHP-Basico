@@ -13,9 +13,9 @@
                         <a href="/"
                             class="rounded-md <?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> text-gray-300 hover:bg-gray-700 px-3 py-2 text-sm font-medium text-white"
                             aria-current="page">Home</a>
-                        <a href="about"
+                        <a href="/about"
                             class="rounded-md <?= urlIs('/about')  ? 'bg-gray-900 text-white' : 'text-gray-300' ?> px-3 py-2 text-sm font-medium  hover:bg-gray-700 hover:text-white">About</a>
-                        <a href="notes"
+                        <a href="/notes"
                             class="rounded-md <?= urlIs('/notes')  ? 'bg-gray-900 text-white' : 'text-gray-300' ?> px-3 py-2 text-sm font-medium  hover:bg-gray-700 hover:text-white">Notes</a>
                         <a href="/contact"
                             class="rounded-md <?= urlIs('/contact')  ? 'bg-gray-900 text-white' : 'text-gray-300' ?> px-3 py-2 text-sm font-medium  hover:bg-gray-700 hover:text-white">Contact</a>
@@ -60,7 +60,8 @@
                   To: "transform opacity-0 scale-95"
               -->
                         <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden"
-                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"
+                            style="display: none">
                             <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                                 id="user-menu-item-0">Your Profile</a>

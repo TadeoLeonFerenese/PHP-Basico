@@ -1,7 +1,7 @@
 <?php 
 
 //! Este es un ejemplo de como crear un enrutador simple en PHP
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+// $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 // if ($uri === '/') {
 //     require 'controllers/index.php';
@@ -16,11 +16,26 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 //! De esta forma se crea una rota mas limpia y separamos la logica de las rutas
 //! Se puede agregar mas rutas sin necesidad de agregar mas ifs
-return [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php', 
-    '/notes' => 'controllers/notes/index.php', 
-    '/note' => 'controllers/notes/show.php', 
-    '/notes/create' => 'controllers/notes/create.php',
-    '/contact' => 'controllers/contact.php'
-];
+// return [
+//     '/' => 'controllers/index.php',
+//     '/about' => 'controllers/about.php', 
+//     '/notes' => 'controllers/notes/index.php', 
+//     '/note' => 'controllers/notes/show.php', 
+//     '/notes/create' => 'controllers/notes/create.php',
+//     '/contact' => 'controllers/contact.php'
+// ];
+
+$router ->get('/', 'controllers/index.php');
+$router ->get('/about', 'controllers/about.php');
+$router ->get('/contact', 'controllers/contact.php');
+
+$router ->get('/notes', 'controllers/notes/index.php');
+$router ->get('/note', 'controllers/notes/show.php');
+$router ->get('/notes/create', 'controllers/notes/create.php');
+
+$router ->get('/note/edit', 'controllers/notes/edit.php');
+$router ->patch('/note/edit', 'controllers/notes/update.php');
+
+$router ->post('/notes', 'controllers/notes/store.php');
+
+$router ->delete('/note', 'controllers/notes/destroy.php');

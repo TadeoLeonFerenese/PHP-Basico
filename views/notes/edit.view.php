@@ -8,6 +8,9 @@
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <form method="POST" action="/notes">
+            <input type="hidden" name="_method" value="PATCH">
+            <input type="hidden" name="id" value="<?= $note['id'] ?>">
+
             <div class="space-y-12">
                 <div class=" border-gray-900/10 pb-12">
                     <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -25,9 +28,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="px-4 py-3 text-right sm:px-6 mt-5">
+                    <div class="px-4 py-3 text-right sm:px-6 mt-5 gap-x-4 justify-end">
+                        <a type="submit" href="/notes"
+                            class="inline-flex justify-center rounded-md bg-gray-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Cancel
+                        </a>
+
                         <button type="submit"
-                            class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Save</button>
+                            class="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Update
+                        </button>
                     </div>
                 </div>
             </div>
