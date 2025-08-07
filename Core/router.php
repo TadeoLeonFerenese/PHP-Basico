@@ -36,11 +36,13 @@ class Router {
     public function route($uri, $method) {   
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-
-                Middleware::resolve($route['middleware']);
-                if ($route['method'] != 'GET') {
-                    $_POST['_method'] = $route['method'];
-                }
+//apply the middleware
+            if($route['middleware'] === 'guest') {
+                if($_SESSION['user'] ?? false) {
+                    header('location: /');
+                    exit();
+         })
+}
                 
             return require base_path($route['controller']);
             }
