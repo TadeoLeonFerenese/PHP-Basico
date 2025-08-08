@@ -36,7 +36,7 @@ $user = $db->query('select * from users WHERE email = :email', [
     //iniciar sesion y redirigir a la pagina principal
     $db->query('INSERT INTO users(email,password) VALUES(:email, :password)', [
         'email' => $email,
-        'password' => $password
+        'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
     //marcar el usuario como logeado
