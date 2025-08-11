@@ -40,9 +40,9 @@ $user = $db->query('select * from users WHERE email = :email', [
     ]);
 
     //marcar el usuario como logeado
-    $_SESSION['user'] = [
+    login([
         'email' => $email
-    ];
+    ]);
 
     header('location: /');
     exit();
