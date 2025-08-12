@@ -8,12 +8,12 @@ use Core\Validator;
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-// ID del usuario actual (hardcodeado por ahora)
-$currentUserId = 1;
+// ID del usuario actual
+$currentUserId = $_SESSION['user']['id'];
 
 // Busca la nota en la base de datos por su ID
 $note = $db->query('select * from notes where id = :id', [
-    'id' => $POST['id']
+    'id' => $_POST['id']
     ])->findOrFail();
 
 // Verifica que el usuario actual sea el dueño de la nota
@@ -38,7 +38,7 @@ if (count($errors)) {
 
 // Actualiza el contenido de la nota en la base de datos
 // usando el ID y cuerpo recibidos por POST
-$db->query('update note set body  = :body where id = :id', [
+$db->query('update notes set body = :body where id = :id', [
     'id' => $_POST['id'],
     'body' => $_POST['body']
 ]);

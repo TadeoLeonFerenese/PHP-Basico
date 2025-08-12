@@ -22,9 +22,17 @@ if(! empty($errors)) {
 
 }
 
+// Verificar si el usuario tiene ID en la sesión
+if (!isset($_SESSION['user']['id'])) {
+    // Si no tiene ID, hacer logout y redirigir al login
+    logout();
+    header('location: /login');
+    exit();
+}
+
 $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
     'body' => $_POST['body'],
-    'user_id' => 1
+    'user_id' => $_SESSION['user']['id']
 ]);
 
 header('location: /notes');

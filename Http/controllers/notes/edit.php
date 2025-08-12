@@ -5,7 +5,7 @@ use Core\Database;
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-$currentUserId = 1;
+$currentUserId = $_SESSION['user']['id'];
 
 $note = $db->query('select * from notes where id = :id', [
     'id' => $_GET['id']

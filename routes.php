@@ -25,9 +25,9 @@
 //     '/contact' => 'controllers/contact.php'
 // ];
 
-$router ->get('/', 'index.php');
-$router ->get('/about', 'about.php');
-$router ->get('/contact', 'contact.php');
+$router ->get('/', '../controllers/index.php');
+$router ->get('/about', '../controllers/about.php');
+$router ->get('/contact', '../controllers/contact.php');
 
 $router ->get('/notes', 'notes/index.php')->only('auth');
 $router ->get('/note', 'notes/show.php');

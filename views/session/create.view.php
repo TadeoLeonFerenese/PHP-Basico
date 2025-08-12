@@ -20,10 +20,11 @@
                     <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
                     <div class="mt-2">
                         <input id="email" type="email" name="email" required autocomplete="email"
-                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            value="<?= old('email') ?>" />
 
-                        <?php if (isset($errors['email'])): ?>
-                        <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
+                        <?php if (\Core\Session::has('errors') && isset(\Core\Session::get('errors')['email'])): ?>
+                        <p class="text-red-500 text-xs mt-2"><?= \Core\Session::get('errors')['email'] ?></p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -39,8 +40,8 @@
                     <div class="text-sm">
                         <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
 
-                        <?php if (isset($errors['password'])): ?>
-                        <p class="text-red-500 text-xs mt-2"><?= $errors['password'] ?></p>
+                        <?php if (\Core\Session::has('errors') && isset(\Core\Session::get('errors')['password'])): ?>
+                        <p class="text-red-500 text-xs mt-2"><?= \Core\Session::get('errors')['password'] ?></p>
                         <?php endif; ?>
                     </div>
 

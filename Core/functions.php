@@ -47,20 +47,13 @@ function view($path, $attributes = [])
     require base_path('views/' . $path);
 }
 
-//funcion que valida si el usuario esta logueado
-function login($user) {
-    $_SESSION['user'] = [
-        'email' => $user['email']
-    ];
-
-    session_regenerate_id(true);
+function redirect($path)
+{
+    header("location: {$path}");
+    exit();
 }
 
-//log out the user outfunction 
-function logout(){
-$_SESSION = [];
-session_destroy();
-
-$params = session_get_cookie_params();
-setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'],$params['secure'],$params['httponly']);
+function old($key, $default = '')
+{
+    return Core\Session::get('old')[$key] ?? $default;
 }

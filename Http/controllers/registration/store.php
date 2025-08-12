@@ -39,10 +39,13 @@ $user = $db->query('select * from users WHERE email = :email', [
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
-    //marcar el usuario como logeado
-    login([
+    // Obtener el usuario recién creado con su ID
+    $user = $db->query('select * from users where email = :email', [
         'email' => $email
-    ]);
+    ])->find();
+
+    //marcar el usuario como logeado
+    login($user);
 
     header('location: /');
     exit();
