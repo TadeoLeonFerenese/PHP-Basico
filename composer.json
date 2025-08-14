@@ -1,0 +1,26 @@
+{
+  "name": "tadeoleonferense/prueba5",
+  "type": "project",
+  "require": {
+    "illuminate/collections": "^12.24"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.8"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}

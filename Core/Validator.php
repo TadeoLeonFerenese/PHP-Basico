@@ -12,8 +12,14 @@ class Validator
     }
     //Static sirve para que el metodo sea publico y no tengas que instanciarlo en otros componenntes con una variable
     // static se usa dirctamente
-    public static function email($value) {
+    public static function email(string $value):bool
+    {
         //Validator :: email('asasasas@exaple.com)
         return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
+    //! Esto fue utilizado para hacer tests
+    public static function greaterThan(string $value, int $greaterThan):bool
+    {
+        return $value > $greaterThan;
     }
 }
