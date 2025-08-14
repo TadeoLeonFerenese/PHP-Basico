@@ -17,11 +17,11 @@ class session {
     }
 
     public static function flash($key, $value){
-        $_SESSION['_flashed'][$key] = $value;
+        $_SESSION['_flash'][$key] = $value;
     }
 
     public static function unflash(){
-        unset($_SESSION['_flashed']);
+        unset($_SESSION['_flash']);
     }
 
     public static function flush() {

@@ -3,20 +3,20 @@
 namespace Http\Forms;
 
 use Core\Validator;
-use Core\ValidationException;
+use Core\ValidatorException;
 
 class LoginForm 
 {
     protected $errors = [];
 
-    public function __constructor(public array $attributes) 
+    public function __construct(public array $attributes) 
     {
         if(!Validator::email($attributes['email'])){
             $this->errors['email'] = "El email no es valido";
         }
 
         // Valida que la contraseña sea una cadena de texto válida
-        if(!Validator::string($this->attribute['password'])){
+        if(!Validator::string($attributes['password'])){
             $this->errors['password'] = "La contraseña no es valida";
         }
     }
@@ -29,7 +29,7 @@ class LoginForm
     }
 
     public function throw() {
-        ValidationException::throw($this->errors(), $this->attributes);
+        ValidatorException::throw($this->errors(), $this->attributes);
         }
 
     public function failed(){

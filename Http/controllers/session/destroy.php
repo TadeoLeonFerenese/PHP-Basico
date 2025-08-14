@@ -1,4 +1,6 @@
 <?php
-logout();
-header('location: /');
-exit();
+
+use Core\Session;
+
+Session::destroy();
+redirect('/');
